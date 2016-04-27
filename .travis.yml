@@ -1,22 +1,23 @@
----
 language: node_js
 node_js:
-  - "4"
-
+- '4'
 sudo: false
-
 cache:
   directories:
-    - node_modules
-
+  - node_modules
 before_install:
-  - npm config set spin false
-  - npm install -g bower
-  - npm install phantomjs-prebuilt
-
+- npm config set spin false
+- npm install -g bower
+- npm install phantomjs-prebuilt
 install:
-  - npm install
-  - bower install
-
+- npm install
+- bower install
 script:
-  - npm test
+- npm test
+deploy:
+  provider: heroku
+  api_key:
+    secure: BCyz96UOAhrqeIR+L1FWuGM1TEo1kU8ExiVCWAWg+ruP04Sh8e2MkbRG0KVnPld1FkgOtIH2mYy6WBkgZh2YJSYJ6RRhzbniQ/QS/VnP23HuSBgvsAQC2/WoTGCCbLsdTYPFoa4gRafGFHbJLC/eejmWwGO6nu37eJQw1WBPDqOg+yPb2tn3WtEh99KAjnXjTMvEUWWJIHpw0Z1U3pon733HeM4dnqkIF2bzx/rhHaZgXW7brbL+ZhRoLkEdNfzYdwDbceKMVMWyoyVcjID0hogQdzw6AbOPj7glC8If0f7eANyREnzgjszpaFg/tBvgUXXJH14H6UWdb6DaAAzeKP0e3lkcdHaFXYD5irEg95QjjYHYLa6RyI41B7U/SaNP2Lx+txBgLL/nw1dmKbN5cY5Hn2BpzQpkRQyG6fPISVEiaq30yP0UMpnaNIseI2fwxLfnHsUTbrRHEbzVP7+voUZsJjMlex5KPyi7SawbUk/EnSQYfUNXLTTSnZpgHpYCTNRi4D3ZSAb4GnNZjJ0MlCq6ravoeDuFNilAA53opAwTEiterGDNUuWvF4vwCnXKEFL+MPRPvVxgNvAEWfa3+MG1fDiC4CYoaIkQcWBOB/pUnMXbLSGB0hXaucpcjROCdlHPEzLj8rHVqqK+KMc350Ki0ln03vd5KdyrtzCquF4=
+  app: afternoon-fjord-85458
+  on:
+    repo: davidpett/peepchat-ui
